@@ -42,24 +42,40 @@ const slideUp = keyframes`
   }
   100% {
     transform: translateY(-120%);
-    opacity: 1;
+    opacity: 0;
   }
 `;
 
 const slideDown = keyframes`
   0% {
-    transform: translateY(-120%); /* Cambiado a valor negativo para iniciar desde arriba */
+    transform: translateX(-120%); /* Cambiado a valor negativo para iniciar desde arriba */
     opacity: 1;
   }
   50% {
-    transform: translateY(0%);
+    transform: translateX(0%);
     opacity: 1;
   }
   100% {
-    transform: translateY(100%); /* Cambiado a valor positivo para moverse hacia abajo */
+    transform: translateX(100%); /* Cambiado a valor positivo para moverse hacia abajo */
     opacity: 1;
   }
 `;
+
+const zoom = keyframes`
+  0% {
+    transform: scale(1); /* Tamaño normal */
+    opacity: 0;
+  }
+  50% {
+    transform: scale(2); /* Zoom al 120% del tamaño normal */
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3); /* Volver al tamaño normal */
+    opacity: 1;
+  }
+`;
+
 
 const Div = styled.div`
   text-align: right;
@@ -77,7 +93,7 @@ const Letra1 = styled.div`
   width: 100%;
   height: 100%;
   font-family: "Century Gothic Bold", sans-serif; /* Fuente Century Gothic Bold */
-  font-size: 300px; /* Tamaño de fuente 72px */
+  font-size: 400px; /* Tamaño de fuente 72px */
   font-weight: bold;
   animation: ${bounce} 20s linear infinite; /* Aplicar la animación */
   white-space: pre-wrap;
@@ -115,6 +131,18 @@ const Letra4 = styled.div`
   animation: ${slideDown} 15s linear infinite; /* Aplicar la animación */
 `;
 
+const Letra5 = styled.div`
+  text-align: left;
+  color:#FF434E;
+  width: 100%;
+  height: 100%;
+  font-family: "arial Bold"; /* Fuente Century Gothic Bold */
+  font-size: 200px; /* Tamaño de fuente 72px */
+  font-weight: bold;
+  animation: ${zoom} 15s linear infinite; /* Aplicar la animación */
+  
+`;
+
 const HomePage = () => {
   const [totalDivs, setTotalDivs] = useState(16);
 
@@ -136,22 +164,30 @@ const HomePage = () => {
       <Container>
         {[...Array(totalDivs)].map((_, index) => {
           let content;
-
+          let additionalStyles = {};
           switch (index) {
             case 9:
               content = <Letra1>2</Letra1>;
+              /* additionalStyles = {
+              animation: "moveDown 2s linear",
+              position: "relative",
+              top: "100px", // Ajusta la cantidad de desplazamiento
+            };*/
               break;
             case 10:
-              content = <Letra2>D</Letra2>;
+              content = <Letra2>D<Letra3>D</Letra3></Letra2>;
+              break;
+            case 12:
+              content = <Letra5>...</Letra5>;
               break;
             case 19:
-              content = <Letra3>E E E E E E E</Letra3>;
+              content = <Letra3>E E E E E E E<Letra1>E E E</Letra1></Letra3>;
               break;
             case 20:
               content = <Letra1>V V V</Letra1>;
               break;
             case 21:
-              content = <Letra3>S</Letra3>;
+              content = <Letra2>S S S S</Letra2>;
               break;
             case 30:
               content = <Letra4>.</Letra4>;
@@ -161,7 +197,7 @@ const HomePage = () => {
               break;
           }
 
-          return <Div key={index}>{content}</Div>;
+          return <Div key={index} style={additionalStyles}>{content}</Div>;
         })}
       </Container>
     </div>
