@@ -1,9 +1,12 @@
 {
   "dependencies": {
+    "gsap": "^3.12.2",
     "next": "^13.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "styled-components": "^6.0.8"
+    "styled-components": "^6.0.8",
+    "three": "^0.156.1",
+    "three-orbitcontrols": "^2.110.3"
   },
   "scripts": {
     "dev": "next dev",
