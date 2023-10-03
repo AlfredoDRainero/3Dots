@@ -87,9 +87,10 @@ const Slogan = styled.div`
 const HomePage = () => {
   return (
     <>
-      <WaveParticleComponent/>
+    <MainContainer>
+      <WaveParticleComponent style={{ position: 'absolute', top: 0, left: 0 ,backgroundColor: 'black' }}/>
        {/*  <BurgerButton/>
-      <MainContainer>
+      
     
       <Container2>
           <SVGComponent />
@@ -100,7 +101,8 @@ const HomePage = () => {
   </Container>
 
         
-      </MainContainer>*/}
+      */}
+      </MainContainer>
     </>
   );
 };

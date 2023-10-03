@@ -1,13 +1,14 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect,useState } from 'react';
 import * as THREE from 'three';
 
 const WaveParticleComponent = () => {
      const containerRef = useRef();
+     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     // Configuración básica de la escena
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color('#DDDDDD'); // Color de fondo de la escena
+    scene.background = new THREE.Color('#212932'); // Color de fondo de la escena
 
    // Crea una cámara con perspectiva
 const camera = new THREE.PerspectiveCamera(
@@ -23,11 +24,12 @@ const camera = new THREE.PerspectiveCamera(
     // Parámetros de las partículas
     const particleSpacing = 5; // Espacio entre partículas en píxeles
     const lineWidth = 0.25; // Ancho de las líneas (partículas más pequeñas)
-    const lineCountX = Math.floor(window.innerWidth / particleSpacing);
-    const lineCountY = Math.floor(window.innerHeight / particleSpacing);
+    const lineCountX = Math.floor(window.innerWidth / particleSpacing /4);
+    const lineCountY = Math.floor(1300 / particleSpacing /4); //cambio esto 
 
+    console.log("window.innerHeight",window.innerHeight)
     // Material de las partículas (negras)
-    const particleMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
+    const particleMaterial = new THREE.MeshBasicMaterial({ color: 0xFF434E });
 
     // Arreglo para almacenar las partículas
     const particles = [];
@@ -35,7 +37,7 @@ const camera = new THREE.PerspectiveCamera(
     // Crea las partículas y las añade a la escena
     for (let x = 0; x < lineCountX; x++) {
       for (let y = 0; y < lineCountY; y++) {
-        const particle = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5), particleMaterial);
+        const particle = new THREE.Mesh(new THREE.PlaneGeometry(0.3, 0.3), particleMaterial);
         particle.position.x = x * particleSpacing;
         particle.position.y = y * particleSpacing;
         particles.push(particle);
@@ -79,7 +81,7 @@ const camera = new THREE.PerspectiveCamera(
 
     window.addEventListener('resize', handleResize);
 
-    // Limpia la escena al desmontar el componente
+        // Limpia la escena al desmontar el componente
     return () => {
       scene.clear();
       window.removeEventListener('resize', handleResize);
@@ -88,4 +90,5 @@ const camera = new THREE.PerspectiveCamera(
 
   return <div ref={containerRef} style={{ width: '100%', height: '100vh' }} />;
 };
+
 export default WaveParticleComponent;
