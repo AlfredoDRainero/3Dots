@@ -9,6 +9,8 @@ import SVGComponent from "../components/SVGComponent";
 
 import BurgerButton from "../components/BurguerButton";
 
+import WaveParticleComponent from "../components/WaveParticle";
+
 
 
 
@@ -69,18 +71,36 @@ const Div = styled.div`
   opacity: 0.2;
 `;
 
+const Slogan = styled.div`
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  color: #dddddd;
+  z-index: 2;
+  font-family: 'Century Gothic', sans-serif; /* Establece Century Gothic como la fuente principal */
+  font-weight: bold; /* Establece el peso de la fuente en negrita (bold) */
+  font-size: 50px;
+  letter-spacing: 3px;
+`;
+
+
 const HomePage = () => {
   return (
     <>
-      <BurgerButton/>
+      <WaveParticleComponent/>
+       {/*  <BurgerButton/>
       <MainContainer>
-        <Container2>
+    
+      <Container2>
           <SVGComponent />
+          <Slogan> Building Digital Experiences </Slogan>
         </Container2>
         <Container>
           <BackgroundL />
-          </Container>
-      </MainContainer>
+  </Container>
+
+        
+      </MainContainer>*/}
     </>
   );
 };

@@ -6,7 +6,8 @@
     "react-dom": "^18.2.0",
     "styled-components": "^6.0.8",
     "three": "^0.156.1",
-    "three-orbitcontrols": "^2.110.3"
+    "three-orbitcontrols": "^2.110.3",
+    "three.js": "^0.77.1"
   },
   "scripts": {
     "dev": "next dev",

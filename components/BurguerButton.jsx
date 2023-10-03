@@ -3,42 +3,34 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const BurgerButtonWrapper = styled.button`
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   border: none;
   background: none;
-  position: relative;
-  cursor: pointer;
-`;
-
-const Line1 = styled.div`
-  width: 20px;
-  height: 2px;
-  background-color: gray;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform-origin: center;
-  transition: transform 0.3s;
-  border-radius: 2px;
-  ${({ data }) => `
-    transform: rotate(${data.rotation}deg) translateY(${data.isActive ? data.spacing / -8 : 5}px);
-  `}
+  cursor: pointer;
+  //background-color: red;
+  z-index: 2;
+  right: 10px; /* Posición desde la derecha */
+  top: 10px; /* Posición desde arriba */
+  margin-right: 50px;
+  margin-top: 30px;
 `;
 
 const Line2 = styled.div`
-  width: 20px;
-  height: 2px;
-  background-color: gray;
+  width: 40px;
+  height: 5px;
+  background-color: #dddddd;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  left: 50%; 
+  top: 50%; 
   transform-origin: center;
+  transform: translate(-50%, -50%) rotate(${(props) => (props.data.isActive ? props.data.rotation : 0)}deg);
   transition: transform 0.3s;
-  border-radius: 2px;
-  ${({ data }) =>
-    data.isActive ? `transform: rotate(${data.rotation}deg);` : "transform: rotate(0);"}
 `;
+
+
+
 
 const BurgerButton = () => {
   const [isActive, setIsActive] = useState(false);
@@ -49,8 +41,8 @@ const BurgerButton = () => {
 
   return (
     <BurgerButtonWrapper className={isActive ? "active" : ""} onClick={toggleMenu}>
-      <Line1 data={{ isActive, rotation: 45, spacing: -4 }} />
-      <Line2 data={{ isActive, rotation: -45 }} />
+     <Line2 data={{ isActive, rotation: -45 }} />
+     <Line2 data={{ isActive, rotation: 45 }} />
     </BurgerButtonWrapper>
   );
 };
