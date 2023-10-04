@@ -6,8 +6,8 @@ const StyledSVG = styled.div`
   /* Estilos personalizados para tu SVG aquí */
   //background-color: red;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: top;
+  align-items: left;
 `;
 
 const SVGComponent = () => {
@@ -41,8 +41,8 @@ const SVGComponent = () => {
   return (
     <StyledSVG>
       <svg
-        width="600"
-        height="600"
+        width="200"
+        height="200"
         viewBox="0 0 180 180"
         xmlns="http://www.w3.org/2000/svg"
       >

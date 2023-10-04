@@ -49,9 +49,9 @@ const camera = new THREE.PerspectiveCamera(
     camera.position.set(lineCountX * particleSpacing / 2, lineCountY * particleSpacing / 2, 100);
 
     // Agrega ejes cartesianos
-    const axesHelper = new THREE.AxesHelper(10); // Longitud de los ejes
-    axesHelper.position.set(lineCountX * particleSpacing / 2, lineCountY * particleSpacing / 2, 0); // Ajusta la posición al centro
-    scene.add(axesHelper);
+    //const axesHelper = new THREE.AxesHelper(10); // Longitud de los ejes
+    //axesHelper.position.set(lineCountX * particleSpacing / 2, lineCountY * particleSpacing / 2, 0); // Ajusta la posición al centro
+    //scene.add(axesHelper);
 
     // Animación
     const animate = () => {

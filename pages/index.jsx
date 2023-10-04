@@ -11,15 +11,11 @@ import BurgerButton from "../components/BurguerButton";
 
 import WaveParticleComponent from "../components/WaveParticle";
 
-
-
-
 // esto se utiliza para cuando tenes problemas de hidratacion
-import dynamic from 'next/dynamic';
-const BackgroundL = dynamic(() => import('../components/BackgroundLetras'), {
+import dynamic from "next/dynamic";
+const BackgroundL = dynamic(() => import("../components/BackgroundLetras"), {
   ssr: false,
 });
-
 
 const MainContainer = styled.div`
   background-color: #dddddd;
@@ -77,31 +73,55 @@ const Slogan = styled.div`
   height: 100%;
   color: #dddddd;
   z-index: 2;
-  font-family: 'Century Gothic', sans-serif; /* Establece Century Gothic como la fuente principal */
+  font-family: "Century Gothic", sans-serif; /* Establece Century Gothic como la fuente principal */
   font-weight: bold; /* Establece el peso de la fuente en negrita (bold) */
   font-size: 50px;
   letter-spacing: 3px;
 `;
 
+const Div1 = styled.div`
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: grid;
+`;
+
+const Div2 = styled.div`
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: grid;
+`;
 
 const HomePage = () => {
   return (
     <>
-    <MainContainer>
-      <WaveParticleComponent style={{ position: 'absolute', top: 0, left: 0 ,backgroundColor: 'black' }}/>
-       {/*  <BurgerButton/>
-      
-    
-      <Container2>
+      <MainContainer>
+        <BurgerButton />
+        <Div1>
+          <WaveParticleComponent
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              backgroundColor: "black",
+            }}
+          />
+        </Div1>
+        <Div2>
           <SVGComponent />
           <Slogan> Building Digital Experiences </Slogan>
+        </Div2>
+
+        {/* <Container2>
+          <SVGComponent />
+          
         </Container2>
         <Container>
           <BackgroundL />
-  </Container>
-
-        
-      */}
+  </Container>*/}
       </MainContainer>
     </>
   );
