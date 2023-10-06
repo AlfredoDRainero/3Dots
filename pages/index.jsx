@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 import SVGComponent from "../components/SVGComponent";
+import  SVGComponent2 from "../components/SVGComponent2";
 
 //import BackgroundL from "../components/BackgroundLetras";
 
@@ -18,13 +19,13 @@ const BackgroundL = dynamic(() => import("../components/BackgroundLetras"), {
 });
 
 const MainContainer = styled.div`
-  background-color: #dddddd;
+  /*background-color: #dddddd;
   background: rgb(73, 72, 77);
   background: radial-gradient(
     circle at 50% 10%,
     rgba(73, 72, 77, 1) 0%,
     rgba(0, 0, 0, 1) 100%
-  );
+  );*/
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(1, 1fr);
@@ -92,7 +93,22 @@ const Div2 = styled.div`
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  //text-align: center;
+  place-self: center; /* Centrar en ambos ejes */
+`;
+
+const Div3 = styled.div`
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
   display: grid;
+  
+  
 `;
 
 const HomePage = () => {
@@ -111,10 +127,20 @@ const HomePage = () => {
           />
         </Div1>
         <Div2>
-          <SVGComponent />
-          <Slogan> Building Digital Experiences </Slogan>
+          
+          <SVGComponent2  />   
+          <Slogan> Building Digital Experiences </Slogan>   
         </Div2>
-
+        <Div2>
+          
+             
+        
+        </Div2>
+        
+        <Div3 >
+        <SVGComponent  /> 
+          
+        </Div3>
         {/* <Container2>
           <SVGComponent />
           
