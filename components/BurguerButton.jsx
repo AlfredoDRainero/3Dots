@@ -10,7 +10,7 @@ const BurgerButtonWrapper = styled.button`
   position: absolute;
   cursor: pointer;
   //background-color: red;
-  z-index: 2;
+  z-index: 4;
   right: 10px; /* Posición desde la derecha */
   top: 10px; /* Posición desde arriba */
   margin-right: 50px;

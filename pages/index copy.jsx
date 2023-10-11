@@ -11,15 +11,6 @@ import SVGComponent2 from "../components/SVGComponent2";
 import BurgerButton from "../components/BurguerButton";
 
 import WaveParticleComponent from "../components/WaveParticle";
-import Cube from "../components/cube";
-
-import ThreeBox from "../components/cube";
-
-// icons svg js
-import LinkedInSVG from "../components/iconsSvg/linkedIn";
-import InstagramSVG from "../components/iconsSvg/Instagram";
-import WhatsAppSVG from "../components/iconsSvg/Whatsapp";
-import MailSVG from "../components/iconsSvg/Mail";
 
 // esto se utiliza para cuando tenes problemas de hidratacion
 import dynamic from "next/dynamic";
@@ -57,7 +48,6 @@ const Section1 = styled.div`
   grid-row-start: 1;
   grid-row-end: 2;
 `;
-
 const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(8, 1fr);
@@ -150,15 +140,13 @@ const Div4 = styled.div`
 
 const Section2 = styled.div`
   color: white;
-  //background-color: #dddddd;
-  //background: rgb(73, 72, 77);
+  /*background-color: #dddddd;
+  background: rgb(73, 72, 77);
   background: radial-gradient(
     circle at 50% 10%,
-    
-    #2f3b49ff 100%,
-    rgba(73, 72, 77, 1) 0%
-  );
-  //background-color: #2f3b49ff;
+    rgba(73, 72, 77, 1) 0%,
+    #212932 100%
+  );*/
   font-family: "Century Gothic";
   width: 100%;
   height: 100vh;
@@ -168,7 +156,7 @@ const Section2 = styled.div`
   grid-row-start: 2;
   grid-row-end: 3;
   display: grid;
-  //flex-direction: column;
+  flex-direction: column;
   justify-content: center;
   align-content: center;
   justify-items: center;
@@ -176,56 +164,11 @@ const Section2 = styled.div`
   place-self: center;
 `;
 
-const SVGImage = styled.img`
-  width: 50px; /* Ancho deseado */
-  height: 50px; /* Alto deseado */
-  z-index: 20;
-  fill: white;
-  //background-color: blue;
-  transition: background-color 0.3s; /* Agrega una transición suave */
-
-  &:hover {
-    background-color: red; /* Cambia el fondo a rojo en el hover */
-  }
-`;
-
-const SocialBar = styled.div`
-gap:40px;
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  display: grid;
-  //background-color: red;
-  width:10%;
-  margin:5vw;
-  justify-self: left;
-  align-self: center;
-  //height:80vh;
-  z-index: 10;
-`;
-
-
 const HomePage = () => {
   return (
     <>
       <MainContainer>
-        <Section1>
-  
-          <BurgerButton />
-   <SocialBar>
-   
-   <LinkedInSVG  fill="#DDDDDD" width={50} height={50} />
-<InstagramSVG fill="#DDDDDD" width={50} height={50}/>
-  <WhatsAppSVG fill="#DDDDDD" width={50} height={50}/>
-<MailSVG fill="#DDDDDD" width={50} height={50}/>
-  
-   
-  
- 
- 
-   </SocialBar>
-          <Div1>
+        <Div1>
             <WaveParticleComponent
               style={{
                 position: "absolute",
@@ -235,41 +178,45 @@ const HomePage = () => {
               }}
             />
           </Div1>
+        <Section1>
+          <BurgerButton />
+          
           <Div2>
-            <SVGComponent2    />
+            <SVGComponent2 />
             <Slogan> Building Digital Experiences </Slogan>
             <Div4></Div4>
           </Div2>
-          
+          <Div2></Div2>
 
-       
+          <Div3>
+            <SVGComponent />
+          </Div3>
         </Section1>
         <Section2>
-          <Div1>
-            <p style={{ width: "50%" }}>
-              Welcome. We are a company that is passionate about developing
-              cutting-edge software to meet all of your digital needs. We are
-              here to make your ideas a reality, from web and mobile
-              applications to PC solutions. Our development team is ready to
-              create personalized solutions that will boost your business and
-              improve the user experience. Join us on our journey to digital
-              success and innovation.
-            </p>
-          </Div1>
-          <Div1>
-            
-          </Div1>
+        <WaveParticleComponent
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                backgroundColor: "black",
+              }}
+            />
+          <p style={{ width: "50%" }}>
+            Welcome. We are a company that is passionate about developing
+            cutting-edge software to meet all of your digital needs. We are here
+            to make your ideas a reality, from web and mobile applications to PC
+            solutions. Our development team is ready to create personalized
+            solutions that will boost your business and improve the user
+            experience. Join us on our journey to digital success and
+            innovation.
+          </p>
         </Section2>
-
-      
         {/*<Container2>
           <SVGComponent />
         </Container2>
         <Container>
           <BackgroundL />
           </Container>*/}
-
-
       </MainContainer>
     </>
   );

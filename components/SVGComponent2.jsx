@@ -8,7 +8,7 @@ const StyledSVG = styled.div`
   /* Definir las variables para el ancho y el alto aquí */
   --svg-width: 400px;
   --svg-height: 100px;
-
+  z-index: 3;
   svg {
     width: var(--svg-width);
     height: var(--svg-height);
