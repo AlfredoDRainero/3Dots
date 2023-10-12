@@ -23,7 +23,7 @@ const Degrade = styled.div`
   
   width: 100%; /* Sin comillas */
   height: 100vh; /* Sin comillas */
-  background: linear-gradient(to bottom, rgba(51, 65, 80, 0),rgba(51, 65, 80, 0), rgba(51, 65, 80, 0.8));
+  background: linear-gradient(to bottom, rgba(51, 65, 80, 0),rgba(51, 65, 80, 0),rgba(51, 65, 80, 0), rgba(51, 65, 80, 0.8));
 `;
 
 const Wave = styled.div`
