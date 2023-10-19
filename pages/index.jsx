@@ -29,6 +29,8 @@ const BackgroundL = dynamic(() => import("../components/BackgroundLetras"), {
   ssr: false,
 });
 
+import Section2 from "../Sections/Section2";
+
 const MainContainer = styled.div`
   /*background-color: #dddddd;
   background: rgb(73, 72, 77);
@@ -154,7 +156,7 @@ const Div3 = styled.div`
   margin-bottom: 50px;
 `;
 
-const Section2 = styled.div`
+const Section20 = styled.div`
   color: white;
   //background-color: #dddddd;
   //background: rgb(73, 72, 77);
@@ -246,8 +248,9 @@ const HomePage = () => {
           </Div4>
         </Section1>
 
-        <Section2>
-          <Div1>
+        
+          <Section2/>
+          {/*<Div1>
             <p style={{ width: "50%" }}>
               Welcome. We are a company that is passionate about developing
               cutting-edge software to meet all of your digital needs. We are
@@ -258,8 +261,8 @@ const HomePage = () => {
               success and innovation.
             </p>
           </Div1>
-          <Div1></Div1>
-        </Section2>
+            <Div1></Div1>*/}
+       
 
         {/*<Container2>
           <SVGComponent />

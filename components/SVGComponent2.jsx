@@ -57,7 +57,7 @@ const SVGComponent2 = () => {
                   x="137.68492"
                   y="63.214417"
                 >
-                  2Devs
+                  3Dots
                 </tspan>
               </text>
               <text
