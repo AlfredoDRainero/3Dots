@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 
 import styled from "styled-components";
 
+
 import SVGComponent from "../components/SVGComponent";
-import SVGComponent2 from "../components/SVGComponent2";
 
 //import BackgroundL from "../components/BackgroundLetras";
 
@@ -133,7 +133,6 @@ const Div4 = styled.div`
 `;
 
 const Div2 = styled.div`
-  //background-color: blue;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -141,16 +140,13 @@ const Div2 = styled.div`
   justify-items: flex-end;
   justify-content: flex-end; /* Cambia justify-items a justify-content para alinear el contenido en la parte inferior */
   width: auto;
-  //height: 100%;
   z-index: 50;  
 `;
 
 const Div3 = styled.div`
-  //background-color: red;
   display: grid;
   z-index: 50;
   width: auto;
-  //height: 100%;
   align-self: end;
   justify-self: center;
   margin-bottom: 50px;
@@ -158,15 +154,12 @@ const Div3 = styled.div`
 
 const Section20 = styled.div`
   color: white;
-  //background-color: #dddddd;
-  //background: rgb(73, 72, 77);
   background: radial-gradient(
     circle at 50% 10%,
-
     #2f3b49ff 100%,
     rgba(73, 72, 77, 1) 0%
   );
-  //background-color: #2f3b49ff;
+
   font-family: "Century Gothic";
   width: 100%;
   height: 100vh;
@@ -239,7 +232,7 @@ const HomePage = () => {
           
           <Div4>
             <Div2>
-              <SVGComponent2/>
+              <SVGComponent/>
               <Slogan > Building Digital Experiences </Slogan>
             </Div2>
             <Div3>  

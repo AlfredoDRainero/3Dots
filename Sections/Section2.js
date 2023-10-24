@@ -39,6 +39,17 @@ const Div1 = styled.div`
   z-index: 1;
 `;
 
+const HoverElement = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 80%;
+  background: transparent;
+  z-index: 0;
+  pointer-events: none;
+`;
+
 const Section2 = () => {
   const images = [
     "/screenworks/imagen1.jpg",
@@ -64,10 +75,17 @@ const Section2 = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentIndex2, setCurrentIndex2] = useState(0.5);
 
+  const [hovering, setHovering] = useState(false);
+
+  const [animationPaused, setAnimationPaused] = useState(false);
+  const [animationPaused2, setAnimationPaused2] = useState(false);
+
   useEffect(() => {
     const nextIndex = (currentIndex + 1) % 5;
     const interval = setInterval(() => {
-      setCurrentIndex(nextIndex);
+      if (!animationPaused) {
+        setCurrentIndex(nextIndex);
+      }
     }, 1200);
     return () => clearInterval(interval);
   }, [currentIndex, images]);
@@ -75,10 +93,28 @@ const Section2 = () => {
   useEffect(() => {
     const nextIndex2 = (currentIndex2 + 1) % 5;
     const interval2 = setInterval(() => {
-      setCurrentIndex2(nextIndex2);
+      if (!animationPaused2) {
+        setCurrentIndex2(nextIndex2);
+      }
     }, 1200);
     return () => clearInterval(interval2);
   }, [currentIndex2, images2]);
+
+  const handleMouseEnterImage = () => {
+    setAnimationPaused(true);
+  };
+
+  const handleMouseLeaveImage = () => {
+    setAnimationPaused(false);
+  };
+
+  const handleMouseEnterImage2 = () => {
+    setAnimationPaused2(true);
+  };
+
+  const handleMouseLeaveImage2 = () => {
+    setAnimationPaused2(false);
+  };
 
   return (
     <AppContainer>
@@ -89,7 +125,10 @@ const Section2 = () => {
           software to meet all of your digital needs.{" "}
         </p>
       </LeftComponent>
-      <Section1>
+      <Section1
+        onMouseEnter={() => setHovering(false)}
+        onMouseLeave={() => setHovering(true)}
+      >
         <Div1>
           <RightComponent>
             <CarouselContainer>
@@ -98,35 +137,44 @@ const Section2 = () => {
               >
                 {images.map((image, index) => (
                   <CarouselItem key={index}>
-                    <Image src={image} alt={`Image ${index + 1}`} />
+                    <Image
+                      src={image}
+                      alt={`Image ${index + 1}`}
+                      onMouseEnter={handleMouseEnterImage}
+                      onMouseLeave={handleMouseLeaveImage}
+                    />
                   </CarouselItem>
                 ))}
               </Carousel>
             </CarouselContainer>
-          <CarouselContainer3></CarouselContainer3>
+            <CarouselContainer3></CarouselContainer3>
             <CarouselContainer>
               <Carousel
                 style={{ transform: `translateY(-${currentIndex2 * 33.33}%)` }}
               >
                 {images2.map((image2, index) => (
                   <CarouselItem2 key={index}>
-                    <Image2 src={image2} alt={`Image ${index + 1}`} />
+                    <Image2
+                      src={image2}
+                      alt={`Image ${index + 1}`}
+                      onMouseEnter={handleMouseEnterImage2}
+                      onMouseLeave={handleMouseLeaveImage2}
+                    />
+                    <HoverElement />
                   </CarouselItem2>
                 ))}
               </Carousel>
             </CarouselContainer>
           </RightComponent>
         </Div1>
-        <Degrade />
-        <Degrade2 />
+        {hovering && <Degrade />}
       </Section1>
     </AppContainer>
   );
 };
 
 const Section1 = styled.div`
-
-flex: 2;
+  flex: 2;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(1, 1fr);
@@ -149,72 +197,74 @@ const Degrade = styled.div`
   height: 100vh; /* Sin comillas */
   background: linear-gradient(
     to bottom,
+    rgba(47, 59, 73, 1),
     rgba(47, 59, 73, 0),
     rgba(47, 59, 73, 0),
     rgba(47, 59, 73, 1)
   );
-`;
+  transition: opacity 0.3s; /* Agregar transición de opacidad */
 
-const Degrade2 = styled.div`
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  display: grid;
-  z-index: 2;
-
-  width: 100%; /* Sin comillas */
-  height: 100vh; /* Sin comillas */
-  background: linear-gradient(
-    to bottom,
-    rgba(47, 59, 73, 1),
-    rgba(47, 59, 73, 0),
-    rgba(47, 59, 73, 0)
-  );
+  &:hover {
+    //opacity: 0; /* Opacidad al hacer hover */
+  }
 `;
 
 const CarouselContainer = styled.div`
   width: 100%;
   position: relative;
-  //background-color: blue;
-  transform: rotate(30deg);
 `;
+
 const CarouselContainer3 = styled.div`
-  width: 20%;
+  width: 22px;
   position: relative;
-  //background-color: blue;
 `;
 
 const Carousel = styled.div`
   display: flex;
   transition: transform 0.5s;
-  //background-color: red;
   flex-direction: column;
   height: 100vh;
   width: 100%;
 `;
 
 const CarouselItem = styled.div`
-  flex: 0 0 33.33%;
-  //background-color: black;
+  flex: 0 0 41%;
   height: 300px;
   margin-left: auto;
 `;
 
 const Image = styled.img`
-  width: 300px;
-  height: 300px;
+  width: 360px;
+  height: 360px;
+  transition: transform 0.5s;
+  z-index: 1;
+  filter: grayscale(100%);
+
+  &:hover {
+    transform: translateX(-40px);
+    z-index: 14;
+    filter: grayscale(0%);
+  }
 `;
 
 const CarouselItem2 = styled.div`
-  flex: 0 0 33.33%;
-  // background-color: gray;
+  flex: 0 0 41%;
   height: 300px;
 `;
 
 const Image2 = styled.img`
-  width: 300px;
-  height: 300px;
+  width: 360px;
+  height: 360px;
+  transition: transform 0.5s;
+  z-index: 1;
+  filter: grayscale(100%);
+
+  &:hover {
+    transform: translateX(40px);
+    z-index: 14;
+    filter: grayscale(0%);
+    
+  }
 `;
 
 export default Section2;
