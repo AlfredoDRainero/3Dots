@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 import SVGComponent from "../components/SVGComponent";
-import SVGComponent2 from "../components/SVGComponent2";
+
 
 //import BackgroundL from "../components/BackgroundLetras";
 
@@ -182,7 +182,7 @@ const HomePage = () => {
           <BurgerButton />
           
           <Div2>
-            <SVGComponent2 />
+         
             <Slogan> Building Digital Experiences </Slogan>
             <Div4></Div4>
           </Div2>
