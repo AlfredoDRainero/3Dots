@@ -20,10 +20,19 @@ const Degrade = styled.div`
   grid-row-end: 2;
   display: grid;
   z-index: 2;
-  
+
   width: 100%; /* Sin comillas */
   height: 100vh; /* Sin comillas */
-  background: linear-gradient(to bottom, rgba(51, 65, 80, 0),rgba(51, 65, 80, 0),rgba(51, 65, 80, 0), rgba(51, 65, 80, 0.8));
+  background: linear-gradient(
+    to bottom,
+    rgba(33, 41, 50, 0),
+    rgba(51, 65, 80, 0),
+    rgba(51, 65, 80, 0),
+    rgba(51, 65, 80, 0),
+    rgba(51, 65, 80, 0),
+    rgba(33, 41, 50, 0.5),
+    rgba(33, 41, 50, 1)
+  );
 `;
 
 const Wave = styled.div`

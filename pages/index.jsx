@@ -46,6 +46,7 @@ const MainContainer = styled.div`
   top: 0;
   position: absolute;
   z-index: 1;
+  background-color: #212932;
 `;
 
 const Section1 = styled.div`

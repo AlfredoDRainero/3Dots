@@ -1,121 +1,34 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import ButtonRounded from "../components/button";
 
 const AppContainer = styled.div`
   display: flex;
   height: 100vh;
-  background-color: red;
-  /*div {
-    border: 1px solid white;
-  }*/
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(1, 1fr);
 `;
 
 const LeftComponent = styled.div`
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(1.5fr, 1fr ,1fr);
-  row-gap: 40px;
-  background-color: #212932;
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 2;
-`;
-
-
-
-const P1 = styled.div`
-justify-self: center;
-align-self: center;
-  display: flex; 
-  justify-content: flex-end;
-  background-color: #212932;
-  flex-direction: column;
-  font-family: "Century Gothic", sans-serif;
-  font-weight: normal;
-  font-size: 30px;
-  letter-spacing: 3px;
-  color: #ffffff;
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  font-size: 100px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  line-height: 1;
-  width:70%;
-  height: 100%;
- 
-`;
-
-const P2 = styled.div`
-
- 
-  justify-self: center;
-  align-self: start;
-  background-color: #212932;
+  padding-left: 100px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2f3b49ff;
   flex-direction: column;
   font-family: "Century Gothic", sans-serif; /* Establece Century Gothic como la fuente principal */
   font-weight: normal; /* Establece el peso de la fuente en negrita (bold) */
   font-size: 30px;
   letter-spacing: 3px;
-  color: #ffffff;
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 2;
-  grid-row-end: 3;
-   font-size: 20px;
-   width:70%;
-  height:auto;
-  letter-spacing: 1px;
-  line-height: 1.2;
-  margin-bottom: 10px; 
-  
-
+  color:#ffffff;
 `;
 
-
-
-const P3 = styled.div`
-
-button {
-  letter-spacing: 1px;
-  line-height: 1.2;  
-  font-size: 20px;
-  font-family: "Century Gothic", sans-serif; /* Establece Century Gothic como la fuente principal */
-  font-weight: bold; /* Establece el peso de la fuente en negrita (bold) */
-  font-size: 18px;
-  letter-spacing: 3px;
-  }
-  justify-self: center;
-  align-self: start;
-  background-color: #212932;
-  flex-direction: column;
- 
-  color: #ffffff;
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 3;
-  grid-row-end: 4;
-   
-   width:70%;
-  height:auto;
-  
-  margin-bottom: 10px; 
-  
-`;
-const Slice = styled.div`
+const RightComponent = styled.div`
+  flex: 2;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   //background-color: brown;
-  background-color: #212932;
+  background-color: #2f3b49ff;
 `;
 
 const Div1 = styled.div`
@@ -161,12 +74,19 @@ const Section2 = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [currentIndex2, setCurrentIndex2] = useState(0.6);
+  const [currentIndex2, setCurrentIndex2] = useState(0.5);
+
+  const [hovering, setHovering] = useState(false);
+
+  const [animationPaused, setAnimationPaused] = useState(false);
+  const [animationPaused2, setAnimationPaused2] = useState(false);
 
   useEffect(() => {
     const nextIndex = (currentIndex + 1) % 5;
     const interval = setInterval(() => {
-      setCurrentIndex(nextIndex);
+      if (!animationPaused) {
+        setCurrentIndex(nextIndex);
+      }
     }, 1200);
     return () => clearInterval(interval);
   }, [currentIndex, images]);
@@ -174,67 +94,113 @@ const Section2 = () => {
   useEffect(() => {
     const nextIndex2 = (currentIndex2 + 1) % 5;
     const interval2 = setInterval(() => {
-      setCurrentIndex2(nextIndex2);
+      if (!animationPaused2) {
+        setCurrentIndex2(nextIndex2);
+      }
     }, 1200);
     return () => clearInterval(interval2);
   }, [currentIndex2, images2]);
 
+  const handleMouseEnterImage = () => {
+    setAnimationPaused(true);
+  };
+
+  const handleMouseLeaveImage = () => {
+    setAnimationPaused(false);
+  };
+
+  const handleMouseEnterImage2 = () => {
+    setAnimationPaused2(true);
+  };
+
+  const handleMouseLeaveImage2 = () => {
+    setAnimationPaused2(false);
+  };
+
   return (
     <AppContainer>
       <LeftComponent>
-        <P1>Innovating Digital Ideas Solutions</P1>
-        <P2>
+        <p
+          style={{
+            fontSize: "100px",
+            fontWeight: "bold",
+            letterSpacing: "1px",
+            lineHeight: "1",
+            marginBottom: "10px", // Reduce la distancia entre los párrafos
+          }}
+        >
+          Innovating Digital Ideas Solutions
+        </p>
+        <p
+          style={{
+            fontSize: "20px",
+            //fontWeight: "bold",
+            letterSpacing: "1px",
+            lineHeight: "1.2",
+            marginBottom: "10px", // Reduce la distancia entre los párrafos
+          }}
+        >
+     
           We are a company that is passionate about developing cutting-edge
           software to meet all of your digital needs.
-          
-        </P2>
-        <P3>
-        <ButtonRounded buttonText={"Let's Talk"} />
-        </P3>
+        </p>
       </LeftComponent>
-      <RightComponent>
+      <Section1
+        onMouseEnter={() => setHovering(false)}
+        onMouseLeave={() => setHovering(true)}
+      >
         <Div1>
-          <Slice>
+          <RightComponent>
             <CarouselContainer>
               <Carousel
                 style={{ transform: `translateY(-${currentIndex * 33.33}%)` }}
               >
                 {images.map((image, index) => (
                   <CarouselItem key={index}>
-                    <Image src={image} alt={`Image ${index + 1}`} />
+                    <Image
+                      src={image}
+                      alt={`Image ${index + 1}`}
+                      onMouseEnter={handleMouseEnterImage}
+                      onMouseLeave={handleMouseLeaveImage}
+                    />
                   </CarouselItem>
                 ))}
               </Carousel>
             </CarouselContainer>
-
+            <CarouselContainer3></CarouselContainer3>
             <CarouselContainer>
               <Carousel
                 style={{ transform: `translateY(-${currentIndex2 * 33.33}%)` }}
               >
                 {images2.map((image2, index) => (
                   <CarouselItem2 key={index}>
-                    <Image2 src={image2} alt={`Image ${index + 1}`} />
+                    <Image2
+                      src={image2}
+                      alt={`Image ${index + 1}`}
+                      onMouseEnter={handleMouseEnterImage2}
+                      onMouseLeave={handleMouseLeaveImage2}
+                    />
                     <HoverElement />
                   </CarouselItem2>
                 ))}
               </Carousel>
             </CarouselContainer>
-          </Slice>
+          </RightComponent>
         </Div1>
-        <Degrade />
-      </RightComponent>
+        {hovering && <Degrade />}
+      </Section1>
     </AppContainer>
   );
 };
 
-const RightComponent = styled.div`
+const Section1 = styled.div`
   flex: 2;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(1, 1fr);
 
-  grid-column-start: 2;
-  grid-column-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 2;
 `;
@@ -251,11 +217,10 @@ const Degrade = styled.div`
   height: 100vh; /* Sin comillas */
   background: linear-gradient(
     to bottom,
-    rgba(33, 41, 50, 1),
-    rgba(33, 41, 50, 0.5),
-    rgba(33, 41, 50, 0),
-    rgba(33, 41, 50, 0.5),
-    rgba(33, 41, 50, 1)
+    rgba(47, 59, 73, 1),
+    rgba(47, 59, 73, 0),
+    rgba(47, 59, 73, 0),
+    rgba(47, 59, 73, 1)
   );
   transition: opacity 0.3s; /* Agregar transición de opacidad */
 
@@ -283,11 +248,9 @@ const Carousel = styled.div`
 `;
 
 const CarouselItem = styled.div`
-  //flex: 0 0 39.1%;
+  flex: 0 0 41%;
   height: 300px;
   margin-left: auto;
-  margin-bottom: 60px;
-  margin-top: 5px;
 `;
 
 const Image = styled.img`
@@ -295,15 +258,18 @@ const Image = styled.img`
   height: 360px;
   transition: transform 0.5s;
   z-index: 1;
+  filter: grayscale(100%);
+
+  &:hover {
+    transform: translateX(-40px);
+    z-index: 14;
+    filter: grayscale(0%);
+  }
 `;
 
 const CarouselItem2 = styled.div`
-  //flex: 0 0 39.1%;
+  flex: 0 0 41%;
   height: 300px;
-  //margin-left: auto;
-  margin-bottom: 60px;
-  margin-top: 5px;
-  margin-left: 5px;
 `;
 
 const Image2 = styled.img`
@@ -311,6 +277,13 @@ const Image2 = styled.img`
   height: 360px;
   transition: transform 0.5s;
   z-index: 1;
+  filter: grayscale(100%);
+
+  &:hover {
+    transform: translateX(40px);
+    z-index: 14;
+    filter: grayscale(0%);
+  }
 `;
 
 export default Section2;
