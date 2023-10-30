@@ -30,6 +30,9 @@ const BackgroundL = dynamic(() => import("../components/BackgroundLetras"), {
 });
 
 import Section2 from "../Sections/Section2";
+import Section3 from "../Sections/Section3";
+
+
 
 const MainContainer = styled.div`
   /*background-color: #dddddd;
@@ -207,6 +210,8 @@ const SocialBar = styled.div`
   z-index: 10;
 `;
 
+const imageUrl = "/screenworks/imagen1.jpg";
+
 const HomePage = () => {
   return (
     <>
@@ -242,8 +247,11 @@ const HomePage = () => {
           </Div4>
         </Section1>
 
+       
         
           <Section2/>
+
+          <Section3/>
           {/*<Div1>
             <p style={{ width: "50%" }}>
               Welcome. We are a company that is passionate about developing

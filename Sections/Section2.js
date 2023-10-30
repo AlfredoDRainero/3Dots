@@ -17,7 +17,7 @@ const AppContainer = styled.div`
 const LeftComponent = styled.div`
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(1.5fr, 1fr ,1fr);
+  grid-template-rows: repeat(1.5fr, 1fr, 1fr);
   row-gap: 40px;
   background-color: #212932;
   grid-column-start: 1;
@@ -26,12 +26,10 @@ const LeftComponent = styled.div`
   grid-row-end: 2;
 `;
 
-
-
 const P1 = styled.div`
-justify-self: center;
-align-self: center;
-  display: flex; 
+  justify-self: center;
+  align-self: center;
+  display: flex;
   justify-content: flex-end;
   background-color: #212932;
   flex-direction: column;
@@ -48,14 +46,11 @@ align-self: center;
   font-weight: bold;
   letter-spacing: 1px;
   line-height: 1;
-  width:70%;
+  width: 70%;
   height: 100%;
- 
 `;
 
 const P2 = styled.div`
-
- 
   justify-self: center;
   align-self: start;
   background-color: #212932;
@@ -69,46 +64,44 @@ const P2 = styled.div`
   grid-column-end: 2;
   grid-row-start: 2;
   grid-row-end: 3;
-   font-size: 20px;
-   width:70%;
-  height:auto;
+  font-size: 20px;
+  width: 70%;
+  height: auto;
   letter-spacing: 1px;
   line-height: 1.2;
-  margin-bottom: 10px; 
-  
-
+  margin-bottom: 10px;
+ // background-color: red;
 `;
 
-
-
 const P3 = styled.div`
-
-button {
-  letter-spacing: 1px;
-  line-height: 1.2;  
-  font-size: 20px;
-  font-family: "Century Gothic", sans-serif; /* Establece Century Gothic como la fuente principal */
-  font-weight: bold; /* Establece el peso de la fuente en negrita (bold) */
-  font-size: 18px;
-  letter-spacing: 3px;
+  button {
+    letter-spacing: 1px;
+    line-height: 1.2;
+    font-size: 20px;
+    font-family: "Century Gothic", sans-serif; /* Establece Century Gothic como la fuente principal */
+    font-weight: bold; /* Establece el peso de la fuente en negrita (bold) */
+    font-size: 18px;
+    letter-spacing: 3px;
   }
   justify-self: center;
-  align-self: start;
-  background-color: #212932;
+  //align-self: end;
   flex-direction: column;
- 
   color: #ffffff;
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 3;
   grid-row-end: 4;
-   
-   width:70%;
-  height:auto;
+  width: 70%;
+  //height: auto;
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: 1fr; /* Ajusta el número de columnas según tu diseño */
+  justify-items: start; /* Alinea los elementos hijos a la derecha */
   
-  margin-bottom: 10px; 
-  
+
 `;
+
+
 const Slice = styled.div`
   display: flex;
   justify-content: center;
@@ -186,10 +179,9 @@ const Section2 = () => {
         <P2>
           We are a company that is passionate about developing cutting-edge
           software to meet all of your digital needs.
-          
         </P2>
         <P3>
-        <ButtonRounded buttonText={"Let's Talk"} />
+          <ButtonRounded buttonText={"Let's Talk"} />
         </P3>
       </LeftComponent>
       <RightComponent>

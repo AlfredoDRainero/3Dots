@@ -7,7 +7,7 @@ const BurgerButtonWrapper = styled.button`
   height: 40px;
   border: none;
   background: none;
-  position: absolute;
+  position: fixed;
   cursor: pointer;
   //background-color: red;
   z-index: 4;
