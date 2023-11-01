@@ -2,34 +2,88 @@ import React from 'react';
 import styled from 'styled-components';
 
 const RoundedButton = styled.button`
-
+  position: relative;
   border: none;
   border-radius: 3px;
   padding: 10px 20px;
   font-size: 20px;
-  background-color: #FF434E; /* Color de fondo por defecto */
-  color: #dddddd; /* Color del texto */
+  background-color: #FF434E;
+  color: #dddddd;
   cursor: pointer;
-  //box-shadow: 0px 0px 20px #FF434E; /* Sombra leve hacia afuera */
-  transition: background-color 0.3s; /* Transición de color al pasar el cursor */
-  width:200px;
-  height:50px;
- 
+  transition: background-color 0.3s;
+  width: 200px;
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
-    &:hover {
-    background-color: #28485f; /* Color de fondo al pasar el cursor */
-    //box-shadow: 0px 0px 20px  #28485f; /* Sombra leve hacia afuera */
-    //border-radius: 10px;
+const DivA = styled.div`
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #28485f;
+  border-radius: 50%;
+  transition: width 0.5s, height 0.5s;
+  z-index: 3;
+  left: 15%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+`;
+
+
+const Texto = styled.p`
+  z-index: 10;
+  position: absolute;
+  transition: transform 0.5s;
+  //left: 0;
+  padding-left: 10px;
+  ${RoundedButton}:hover & {
+    transform: translateX(20px);
   }
+  color:white;
+`;
 
+
+const Flecha = styled.p`
+  z-index: 10;
+  position: absolute;
+  transition: transform 0.2s;
+  left: -30px;
+  font-weight: bold;
+  font-size: 30px;
+  top:-27px;
+  //padding-left: 10px;
+
+  ${RoundedButton}:hover & {
+    transform: translateX(50px);
+  }
+  color:white;
+`;
+
+
+const RoundedButtonWithCircle = styled(RoundedButton)`
+  &:hover ${DivA} {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    
+    transition: width 0.5s, height 0.5s, background-color 0s;
+    background-color: #28485f;
+  }
 `;
 
 const ButtonRounded = ({ buttonText }) => {
   return (
-    <RoundedButton>
-      {buttonText}
-    </RoundedButton>
+    <RoundedButtonWithCircle>
+      <DivA />
+      <Texto>{buttonText}</Texto>
+      <Flecha>→</Flecha>
+    </RoundedButtonWithCircle>
   );
-}
+};
 
 export default ButtonRounded;

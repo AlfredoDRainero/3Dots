@@ -12,6 +12,7 @@ const StyledSVG = styled.div`
     width: var(--svg-width);
     height: var(--svg-height);
   }
+  transform: scale(1.2);
 `;
 
 const SVGComponent = () => {

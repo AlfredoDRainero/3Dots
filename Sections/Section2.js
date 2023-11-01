@@ -55,9 +55,9 @@ const P2 = styled.div`
   align-self: start;
   background-color: #212932;
   flex-direction: column;
-  font-family: "Century Gothic", sans-serif; /* Establece Century Gothic como la fuente principal */
+  font-family: "arial", sans-serif; /* Establece Century Gothic como la fuente principal */
   font-weight: normal; /* Establece el peso de la fuente en negrita (bold) */
-  font-size: 30px;
+  
   letter-spacing: 3px;
   color: #ffffff;
   grid-column-start: 1;
@@ -181,7 +181,7 @@ const Section2 = () => {
           software to meet all of your digital needs.
         </P2>
         <P3>
-          <ButtonRounded buttonText={"Let's Talk"} />
+          <ButtonRounded buttonText={"LET'S TALK"} />
         </P3>
       </LeftComponent>
       <RightComponent>
@@ -245,6 +245,8 @@ const Degrade = styled.div`
     to bottom,
     rgba(33, 41, 50, 1),
     rgba(33, 41, 50, 0.5),
+    rgba(33, 41, 50, 0),
+    rgba(33, 41, 50, 0),
     rgba(33, 41, 50, 0),
     rgba(33, 41, 50, 0.5),
     rgba(33, 41, 50, 1)

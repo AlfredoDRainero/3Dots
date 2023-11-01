@@ -49,7 +49,7 @@ const MainContainer = styled.div`
   top: 0;
   position: absolute;
   z-index: 1;
-  background-color: #212932;
+  background-color: #dddddd;
 `;
 
 const Section1 = styled.div`
@@ -113,6 +113,7 @@ const Slogan = styled.div`
   font-weight: normal; /* Establece el peso de la fuente en negrita (bold) */
   font-size: 30px;
   letter-spacing: 3px;
+  margin:20px;
 `;
 
 const Div1 = styled.div`
